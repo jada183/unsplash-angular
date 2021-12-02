@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "unsplash-gallery": {
+    "unsplash-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/unsplash-gallery",
+            "outputPath": "dist/unsplash-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "unsplash-gallery:build:production"
+              "browserTarget": "unsplash-angular:build:production"
             },
             "development": {
-              "browserTarget": "unsplash-gallery:build:development"
+              "browserTarget": "unsplash-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "unsplash-gallery:build"
+            "browserTarget": "unsplash-angular:build"
           }
         },
         "test": {
