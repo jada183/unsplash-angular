@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <nav class="nnavbar navbar-expand-lg sticky-top navbar-dark pb-5 bg-dark">
+        <div class="text-center">
+            <h4>BUSCADOR DE IMAGENES.</h4>
+        </div>
+        <div class="row mb-3">
+            <input type="text" class="form-control" placeholder="Filtro para imagenes" [(ngModel)]="filter"
+                class="col-md-4 offset-md-4 col-12" (keyup.enter)="search()"/>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary col-md-4 offset-md-4" (click)="search()">Buscar</button>
+        </div>
+        <div class="row">
+            <span class="col-md-4 offset-md-4 text-center link" (click)="advanceSearch(true)"
+                *ngIf="!enableAdvanceSearch">Busqueda avanzada</span>
+            <span class="col-md-4 offset-md-4 text-center link" (click)="advanceSearch(false)"
+                *ngIf="enableAdvanceSearch">Ocultar busqueda avanzada</span>
+        </div>
+        <!--ADVANCE SEARCH-->
+        <div *ngIf="enableAdvanceSearch">
+            <div class="row mb-3">
+                <div class="col-4 offset-4">
+                    <app-color-selector (selectedColorchange)="selectColor($event)" [selectedColor]="selectedColor"></app-color-selector>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4">
+                    <span>ORIENTACIÓN</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4">
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="orientation">
+                        <option [value]="orientation.value" *ngFor="let orientation of orientationList">
+                            {{orientation.label}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    <div class="row" *ngIf="!error" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()"
+        [infiniteScrollDisabled]="infiniteScrollDisabled">
+        <div *ngFor="let image of imageList" class="text-center mb-3 col-4">
+            <img [src]="image.urls.small" (click)="openPhotoDetail(image.id)" [alt]="image.alt_description" />
+        </div>
+    </div>
+    <div *ngIf="error">
+        <span>No se ha podido recuperar las imagenes del servicio.</span>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+    <div class="custom-row mt-5" *ngIf="photo">
+        <img class="photo" [src]="photo.urls.full" [alt]="photo.alt_description" />
+        <div class="photo-info-box">
+            <div class="row mb-3" *ngIf="photo.description">
+                <span>
+                    <b>Descripción: </b> {{photo.description}}
+                </span>
+            </div>
+            <div class="row mb-3" *ngIf="photo.created_at">
+                <span>
+                    <b>Fecha de creación: </b> {{photo.created_at}}
+                </span>
+            </div>
+            <div class="row mb-3" *ngIf="photo.updated_at">
+                <span>
+                    <b>Fecha de actualización: </b> {{photo.updated_at}}
+                </span>
+            </div>
+            <div class="row mb-3" *ngIf="photo.views">
+                <span>
+                    <b>Visualizaciones: </b> {{photo.views | number}}
+                </span>
+            </div>
+            <div class="row mb-3" *ngIf="photo.downloads">
+                <span>
+                    <b>Descargas: </b> {{photo.downloads | number}}
+                </span>
+            </div>
+            <div class="row mb-3" *ngIf="photo.likes">
+                <span>
+                    <b>Me gustas: </b> {{photo.likes | number}}
+                </span>
+            </div>
+            <div class="row mb-3" *ngIf="photo.user && photo.user.username">
+                <span>
+                    <b>Propietario: </b> {{photo.user.username }}
+                </span>
+            </div>
+            <div class="row align-items-center" *ngIf="photo.color">
+                <b class="col-auto align-center">Color:</b>  
+                <div class="box col-auto" [style.background-color]="photo.color"></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
