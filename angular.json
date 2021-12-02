@@ -4,7 +4,7 @@
     "analytics": false
   },
   "version": 1,
-  "newProjectRoot": "unsplash-angular",
+  "newProjectRoot": "projects",
   "projects": {
     "unsplash-gallery": {
       "projectType": "application",
