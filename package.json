@@ -1,6 +1,7 @@
 {
-  "name": "unsplash-gallery",
+  "name": "unsplash-angular",
   "version": "0.0.0",
+  "homepage": "https://jada183.github.io/unsplash-angular",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
