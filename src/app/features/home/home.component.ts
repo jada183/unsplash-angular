@@ -12,7 +12,7 @@ import { searchPhotoFilters } from 'src/app/core/models/search-photos-filter.mod
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly unsplashService: UnsplashApiService, private readonly router: Router) { }
+  constructor(private readonly unsplashService: UnsplashApiService,private readonly router: Router) { }
   public filter = '';
   public imageList: Array<any> = [];
   public error: boolean = false;
@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
   public infiniteScrollDisabled = false;
   public orientationList = [
     { value: '', label: '' },
-    { value: 'landscape', label: 'Paisaje' },
-    { value: 'portrait',  label: 'Retrato'},
-    { value: 'squarish', label: 'Cuadrangular' },
+    { value: 'landscape', label: 'HOME.LANDSCAPE' },
+    { value: 'portrait', label: 'HOME.PORTRET' },
+    { value: 'squarish', label: 'HOME.SQUARISH' },
   ]
   private readonly subscriptions: Array<Subscription> = [];
   ngOnInit(): void {
@@ -92,12 +92,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    for(const subs of this.subscriptions) {
+    for (const subs of this.subscriptions) {
       subs.unsubscribe();
     }
   }
   private getFilters(): searchPhotoFilters {
-    return  {
+    return {
       query: this.filter,
       page: this.page,
       per_page: this.perPage,

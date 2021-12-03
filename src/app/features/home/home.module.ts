@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     InfiniteScrollModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class HomeModule { }

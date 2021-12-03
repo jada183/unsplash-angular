@@ -1,20 +1,21 @@
 <div class="container-fluid">
-    <nav class="nnavbar navbar-expand-lg sticky-top navbar-dark pb-5 bg-dark">
+    <nav class="nnavbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <app-language-selector></app-language-selector>
         <div class="text-center">
-            <h4>BUSCADOR DE IMAGENES.</h4>
+            <h4>{{ 'HOME.TITLE' | translate | uppercase}}</h4>
         </div>
         <div class="row mb-3">
-            <input type="text" class="form-control" placeholder="Filtro para imagenes" [(ngModel)]="filter"
+            <input type="text" class="form-control" [placeholder]="'HOME.IMAGE_FILTER' | translate" [(ngModel)]="filter"
                 class="col-md-4 offset-md-4 col-12" (keyup.enter)="search()"/>
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary col-md-4 offset-md-4" (click)="search()">Buscar</button>
+            <button type="button" class="btn btn-primary col-md-4 offset-md-4" (click)="search()">{{'HOME.SEARCH' | translate}}</button>
         </div>
         <div class="row">
             <span class="col-md-4 offset-md-4 text-center link" (click)="advanceSearch(true)"
-                *ngIf="!enableAdvanceSearch">Busqueda avanzada</span>
+                *ngIf="!enableAdvanceSearch">{{ 'HOME.ADVANCE_SEARCH' | translate}}</span>
             <span class="col-md-4 offset-md-4 text-center link" (click)="advanceSearch(false)"
-                *ngIf="enableAdvanceSearch">Ocultar busqueda avanzada</span>
+                *ngIf="enableAdvanceSearch">{{ 'HOME.HIDE_ADVANCE_SEARCH' | translate}}</span>
         </div>
         <!--ADVANCE SEARCH-->
         <div *ngIf="enableAdvanceSearch">
@@ -25,28 +26,31 @@
             </div>
             <div class="row">
                 <div class="offset-4 col-4">
-                    <span>ORIENTACIÓN</span>
+                    <span>{{ 'HOME.ORIENTATION' | translate }}</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-3">
                 <div class="offset-4 col-4">
                     <select class="form-select" aria-label="Default select example" [(ngModel)]="orientation">
                         <option [value]="orientation.value" *ngFor="let orientation of orientationList">
-                            {{orientation.label}}
+                            {{ orientation.label | translate}}
                         </option>
                     </select>
                 </div>
             </div>
+        </div>
+        <div  class="divider-search-header row ">
+
         </div>
 
     </nav>
     <div class="row" *ngIf="!error" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()"
         [infiniteScrollDisabled]="infiniteScrollDisabled">
         <div *ngFor="let image of imageList" class="text-center mb-3 col-4">
-            <img [src]="image.urls.small" (click)="openPhotoDetail(image.id)" [alt]="image.alt_description" />
+            <img [src]="image.urls.small" (click)="openPhotoDetail(image.id)" [alt]="image.alt_description" class="cursor-pointer" />
         </div>
     </div>
     <div *ngIf="error">
-        <span>No se ha podido recuperar las imagenes del servicio.</span>
+        <span>{{ 'HOME.ERROR_MESSAGE' | translate}}</span>
     </div>
 </div>

@@ -1,0 +1,12 @@
+.row-flags {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1em ;
+}
+.flag-icon {
+    margin-right: 0.5em;
+}
+.selected-language {
+    border: 2px solid green;
+    width: 30px;
+}
