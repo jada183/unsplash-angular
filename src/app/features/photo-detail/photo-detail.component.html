@@ -3,7 +3,24 @@
         <app-language-selector (changeSelectedLanguage)="changeSelectedLanguage($event)"></app-language-selector>
     </div>
     <div class="custom-row mt-5" *ngIf="photo">
-        <img class="photo" [src]="photo.urls.full" [alt]="photo.alt_description" />
+        <div class="flex-column">
+            <img class="photo" [src]="photo.urls.full" [alt]="photo.alt_description" />
+            <div class="d-flex align-items-end">
+                <div class="d-flex align-items-end image-data-icon-container">
+                    <img src="assets/icons/like.svg" width="25px" height="25px" class="icon-photo-info">
+                    <b>{{photo.likes}}</b>
+                </div>
+                <div class="d-flex align-items-end image-data-icon-container">
+                    <img src="assets/icons/eye.svg" width="25px" height="25px" class="icon-photo-info">
+                    <b>{{photo.views}}</b>
+                </div>
+                <div class="d-flex align-items-end image-data-icon-container">
+                    <img src="assets/icons/downloads.svg" width="25px" height="25px" class="icon-photo-info">
+                    <b>{{photo.downloads}}</b>
+                </div>
+            </div>
+        </div>
+       
         <div class="photo-info-box">
             <div class="row mb-3" *ngIf="photo.description">
                 <span>
@@ -18,21 +35,6 @@
             <div class="row mb-3" *ngIf="photo.updated_at">
                 <span>
                     <b>{{ "PHOTO_DETAIL.UPDATE_DATE" | translate}}: </b> {{photo.updated_at | date: dateFormat}}
-                </span>
-            </div>
-            <div class="row mb-3" *ngIf="photo.views">
-                <span>
-                    <b>{{ "PHOTO_DETAIL.VIEWS" | translate}}: </b> {{photo.views}}
-                </span>
-            </div>
-            <div class="row mb-3" *ngIf="photo.downloads">
-                <span>
-                    <b>{{ "PHOTO_DETAIL.DOWNLOADS" | translate}}: </b> {{photo.downloads}}
-                </span>
-            </div>
-            <div class="row mb-3" *ngIf="photo.likes">
-                <span>
-                    <b>{{ "PHOTO_DETAIL.LIKES" | translate}}: </b> {{photo.likes}}
                 </span>
             </div>
             <div class="row mb-3" *ngIf="photo.user && photo.user.username">
