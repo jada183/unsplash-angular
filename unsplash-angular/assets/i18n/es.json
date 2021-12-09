@@ -1,0 +1,27 @@
+{
+    "HOME": {
+        "TITLE": "Buscador de imágenes",
+        "IMAGE_FILTER": "Filtro de imagenes",
+        "SEARCH": "Buscar",
+        "ADVANCE_SEARCH": "Búsqueda avanzada",
+        "HIDE_ADVANCE_SEARCH": "Ocultar búsqueda avanzada",
+        "ORIENTATION": "Orientación",
+        "ERROR_MESSAGE": "No se ha podido recuperar las imagenes del servicio.",
+        "LANDSCAPE":"Paisaje",
+        "PORTRET": "Retrato",
+        "SQUARISH": "Cuadrilla"
+    },
+    "PHOTO_DETAIL": {
+        "DESCRIPTION":"Descripción",
+        "CREATION_DATE": "Fecha de creación:",
+        "UPDATE_DATE": "Fecha de actualización:",
+        "VIEWS": "Visualizaciones",
+        "DOWNLOADS": "Descargas",
+        "LIKES":"Me Gusta",
+        "OWNER": "Propietario",
+        "COLOR": "Color"
+    },
+    "COLOR_SELECTOR": { 
+        "TITLE": "Colores"
+    }
+}
